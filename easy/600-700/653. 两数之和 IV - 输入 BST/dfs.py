@@ -7,11 +7,19 @@
 653. 两数之和 IV - 输入 BST
 给定一个二叉搜索树 root 和一个目标结果 k，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 true。
 
-值得注意的点，因为是二叉搜索树，所以不需要考虑相同的值；
-且题目进行了简化，不需要连接的两个数
-"""
+分析：
+    二叉搜索树的定义：
+        一棵空树或者具有下列性质的二叉树
+            1）若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值
+            2）若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值
+            3）任意节点的左右子树也分别为二叉搜索树
 
-from typing import Optional
+    根据定义可知，二叉搜索树root中是不会有相同值的！这样题目其实简化了
+
+    且题目进行了简化，不需要连接的两个数
+"""
+import copy
+from typing import Optional, List
 
 
 class TreeNode:
@@ -22,25 +30,27 @@ class TreeNode:
 
 
 class Solution:
-    node_set = set()
+    node_list: List[int] = []
 
-    def dfs(self, root: Optional[TreeNode]):
+    def dfs(self, root: TreeNode):
         if not root:
             return
-
-        self.node_set.add(root.val)
+        self.node_list.append(root.val)
         self.dfs(root.left)
         self.dfs(root.right)
 
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        """"""
+
+        """遍历树"""
         self.dfs(root)
 
-        if len(self.node_set) < 2:
-            return False
-
-        for item in self.node_set:
+        """根据遍历结果进行判断"""
+        for index, item in enumerate(self.node_list):
             target = k - item
-            if target in self.node_set:
+            compare_list = copy.deepcopy(self.node_list)
+            compare_list = compare_list[:index] + compare_list[index + 1:]
+            if target in compare_list:
                 return True
 
         return False
