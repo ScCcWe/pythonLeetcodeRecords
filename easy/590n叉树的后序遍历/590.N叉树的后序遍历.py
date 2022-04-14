@@ -1,10 +1,10 @@
 # !/usr/bin/env python 
 # -*- coding: utf-8 -*-
-# file_name: 590.N叉树的后序遍历.py
+# file_name: 590n叉树的后序遍历.N叉树的后序遍历.py
 # author: ScCcWe
 # time: 2022/3/12 8:51 下午
 """
-590. N 叉树的后序遍历
+590n叉树的后序遍历. N 叉树的后序遍历
 
 给定一个 n叉树的根节点root，返回 其节点值的 后序遍历 。
 

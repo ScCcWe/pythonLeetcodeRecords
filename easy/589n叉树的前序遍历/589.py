@@ -1,6 +1,6 @@
 # !/usr/bin/env python 
 # -*- coding: utf-8 -*-
-# file_name: 589.py
+# file_name: 589n叉树的前序遍历.py
 # author: ScCcWe
 # time: 2022/3/13 12:09 上午
 """
