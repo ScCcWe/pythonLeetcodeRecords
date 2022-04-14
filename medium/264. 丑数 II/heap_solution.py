@@ -42,3 +42,4 @@ class Solution:
 if __name__ == '__main__':
     print(Solution().nthUglyNumber(2))
     print(Solution().nthUglyNumber(10))
+    print(Solution().nthUglyNumber(100))
